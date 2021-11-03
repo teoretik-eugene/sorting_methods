@@ -22,7 +22,7 @@ int main() {
 }
 
 int partition(int* arr, int low, int high) {
-	int pivot = arr[high];		// пивот или же разрешающий элемент
+	int pivot = arr[high];		// РїРёРІРѕС‚ РёР»Рё Р¶Рµ СЂР°Р·СЂРµС€Р°СЋС‰РёР№ СЌР»РµРјРµРЅС‚
 
 	int i = low - 1;
 	for (int j = low; j <= high - 1; j++) {
