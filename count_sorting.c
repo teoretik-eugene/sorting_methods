@@ -15,26 +15,33 @@ int main() {
 		scanf("%d", &arr[i]);
 	}
 
-	count_sort(arr, n);
+	count_sort(arr, n);		// сортируем
+	free(*arr);
 
 	return 0;
 }
 
 /* Функция сортировки подсчетом */
 void count_sort(int *a, int n) {
-	int* count = (int*)calloc(n, sizeof(int));
-	// Счетчик всех чисел обнуляем
-	for (int i = 0; i < n; i++)
+	// Найти максимально большое число
+	int max = 0;
+	for (int i = 0; i < n; i++) {
+		if (a[i] > max)
+			max = a[i];
+	}
+	int* count = (int*)calloc(max + 1, sizeof(int));	// Выделяем память под новый массив
+	// Счетчик всех чисел равен 0
+	for (int i = 0; i < max + 1; i++)
 		count[i] = 0;
 
-	// Подсчитываем количество чисел исходного массива
+	// Подсчитываем количество каждого числа в исходном массиве
 	for (int i = 0; i < n; i++) {
-		count[a[i]]++;
+		count[a[i]] = count[a[i]] + 1;
 	}
 
 	// Производим сортировку
 	int index = 0;
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i < max + 1; i++) {
 		for (int j = 0; j < count[i]; j++) {
 			a[index++] = i;
 		}
@@ -45,4 +52,6 @@ void count_sort(int *a, int n) {
 		printf("%d", a[i]);
 		printf(" ");
 	}
+
+	//free(*count);		ошиббка???
 }
