@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "qsort.h"
+
+int partition(int* arr, int low, int high) {
+	int pivot = arr[high];		// пивот или же разрешающий элемент
+
+	int i = low - 1;
+	for (int j = low; j <= high - 1; j++) {
+		if (arr[j] < pivot) {
+			i++;
+			swap(&arr[i], &arr[j]);
+		}
+	}
+	swap(&arr[i + 1], &arr[high]);
+	return (i + 1);
+}
+
+void quick_sort(int* arr, int low, int high) {
+	if (low < high) {
+		int pi = partition(arr, low, high);
+
+		quick_sort(arr, low, pi - 1);
+		quick_sort(arr, pi + 1, high);
+	}
+
+}
+
+void swap(int* a, int* b) {
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+void ShowArr(int* arr, int len) {
+	for (int i = 0; i < len; i++) {
+		printf("%d%s", arr[i], " ");
+	}
+}
