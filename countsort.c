@@ -30,5 +30,5 @@ void count_sort(int* a, int n) {
 		}
 	}
 
-	free(count);		//ошиббка???
+	free(count);
 }
