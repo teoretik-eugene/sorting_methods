@@ -22,7 +22,7 @@ int main() {
 
 	/* Генерация случайных чисел от 0 до 100 */
 	for (int i = 0; i < n; i++) {
-		arr[i] = rand() % 101;
+		arr[i] = rand() % 501;
 		//fprintf(fp, "%d%s", arr[i], " ");
 	}
 
