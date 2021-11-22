@@ -20,7 +20,7 @@ int main() {
 	fprintf(fp, "%d", n);
 	fprintf(fp, "%s", " Numbers: \t");
 
-	/* Генерация случайных чисел от 0 до 100 */
+	/* Р“РµРЅРµСЂР°С†РёСЏ СЃР»СѓС‡Р°Р№РЅС‹С… С‡РёСЃРµР» РѕС‚ 0 РґРѕ 100 */
 	for (int i = 0; i < n; i++) {
 		arr[i] = rand() % 101;
 		//fprintf(fp, "%d%s", arr[i], " ");
@@ -35,7 +35,7 @@ int main() {
 	case 1: {
 		FILE* count_file;
 		count_file = fopen("count time.txt", "w+");
-		clock_t begin = clock();		// Начало отсчета
+		clock_t begin = clock();		// РќР°С‡Р°Р»Рѕ РѕС‚СЃС‡РµС‚Р°
 		count_sort(arr, n);
 		clock_t end = clock();
 		double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
@@ -44,7 +44,7 @@ int main() {
 	case 2: {
 		FILE* quick_file;
 		quick_file = fopen("quick time.txt", "w+");
-		clock_t begin = clock();		// Начало отсчета
+		clock_t begin = clock();		// РќР°С‡Р°Р»Рѕ РѕС‚СЃС‡РµС‚Р°
 		quick_sort(arr, 0, n - 1);
 		clock_t end = clock();
 		double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
