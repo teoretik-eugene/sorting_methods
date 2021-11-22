@@ -20,7 +20,7 @@ int main() {
 	fprintf(fp, "%d", n);
 	fprintf(fp, "%s", " Numbers: \t");
 
-	/* Генерация случайных чисел от 0 до 100 */
+	/* Генерация случайных чисел от 0 до 500 */
 	for (int i = 0; i < n; i++) {
 		arr[i] = rand() % 501;
 		//fprintf(fp, "%d%s", arr[i], " ");
