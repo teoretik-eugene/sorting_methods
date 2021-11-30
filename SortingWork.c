@@ -7,6 +7,7 @@
 
 
 int main() {
+	/* Создание выходного файла */
 	FILE* fp;
 	if ((fp = fopen("output.txt", "w+")) == NULL) {
 		printf("ERROR with opening");
@@ -15,20 +16,22 @@ int main() {
 	printf("Enter size of array: ");
 	int n;
 	scanf("%d", &n);
-	int* arr = (int*)calloc(n, sizeof(int));
+	int* arr = (int*)calloc(n, sizeof(int));	// Выделение памяти под массив
 
 	fprintf(fp, "%d", n);
-	fprintf(fp, "%s", " Numbers: \t");
+	fprintf(fp, "%s", " Numbers: \n\t");
+	fprintf(fp, "%s", " \nArray: \t");
 
-	/* Генерация случайных чисел от 0 до 500 */
+	/* Генерация случайных чисел от 0 до 1500 */
+
 	for (int i = 0; i < n; i++) {
-		arr[i] = rand() % 501;
-		//fprintf(fp, "%d%s", arr[i], " ");
+		arr[i] = rand() % 1501;
+		fprintf(fp, "%d%s", arr[i], " ");
 	}
 
 	
 	int choose;
-	printf("Choose the sort:\n1 - Count Sort\n2 - Quick Sort\n");
+	printf("Choose the sort:\n1 - Count Sort\n2 - Quick Sort\n");	// Пользовательский ввод
 	scanf("%d", &choose);
 	switch (choose)
 	{
@@ -52,11 +55,14 @@ int main() {
 	}
 	}
 
+	// Запись отсортированного массива в файл 
+	fprintf(fp, "%s", "\n\nSorted: ");
+
 	for (int i = 0; i < n; i++) {
 		fprintf(fp, "%d%s", arr[i], " ");
 	}
 	
-
+	// Очистка памяти
 	free(arr);
 	fclose(fp);
 
